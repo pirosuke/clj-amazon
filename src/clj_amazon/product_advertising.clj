@@ -36,7 +36,9 @@
     :Children [:children (reduce #(apply assoc+ %1 (parse-results %2)) {} (:content xml))]
     :DetailPageURL [:detail-page-url (first (:content xml))]
     :Item [:items (reduce #(apply assoc+ %1 (parse-results %2)) {} (:content xml))]
-    :ItemAttributes [:item-atributes (reduce #(apply assoc+ %1 (parse-results %2)) {} (:content xml))]
+    :ItemAttributes [:item-attributes (reduce #(apply assoc+ %1 (parse-results %2)) {} (:content xml))]
+    :EditorialReviews [:editorial-reviews (reduce #(apply assoc+ %1 (parse-results %2)) {} (:content xml))]
+    :EditorialReview [:editorial-review (reduce #(apply assoc+ %1 (parse-results %2)) {} (:content xml))]
     :ItemLinks [:item-links (vec (map parse-results (:content xml)))]
     :ItemLink {:description (-> xml :content first :content first), :url (-> xml :content second :content first)}
     :Manufacturer [:manufacturer (first (:content xml))]
@@ -50,6 +52,11 @@
     :TotalPages [:total-pages (read-string (first (:content xml)))]
     :TotalResults [:total-results (read-string (first (:content xml)))]
     :Type [:type (first (:content xml))]
+    :Content [:review-content (first (:content xml))]
+    :SalesRank [:sales-rank (first (:content xml))]
+    :NumberOfPages [:number-of-pages (first (:content xml))]
+    :ReleaseDate [:release-date (first (:content xml))]
+    :IsAdultProduct [:is-adult-product (first (:content xml))]
     [nil nil] ; In case some weird tag appears, ignore it for now.
     ))
 
