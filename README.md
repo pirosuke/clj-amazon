@@ -25,7 +25,9 @@ And at the REPL...
 
     (def ASSOCIATE-ID "YOUR-ASSOCIATE-ID-HERE")
 
-    (def gibson-opus-search (with-signer (ACCESS-KEY, SECRET-KEY) (item-search :search-index "Books", :keywords "Neuromancer", :associate-tag ASSOCIATE-ID, :condition "New")))
+    (def ENDPOINT "ecs.amazonaws.jp")
+
+    (def gibson-opus-search (with-signer (ACCESS-KEY SECRET-KEY ENDPOINT) (item-search :search-index "Books", :keywords "Neuromancer", :associate-tag ASSOCIATE-ID, :condition "New" :response-group "Medium")))
 
 
 ## Reference
